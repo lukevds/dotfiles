@@ -1,0 +1,8 @@
+installing using [[https://www.gnu.org/software/stow/][Stow]]
+#+begin_src bash
+stow -t /home/lvds home-config
+#+end_src
+uninstalling
+#+begin_src bash
+stow -t /home/lvds -D home-config
+#+end_src
