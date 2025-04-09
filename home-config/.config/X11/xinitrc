@@ -1,0 +1,12 @@
+emacs --daemon &
+xrdb .config/X11/Xresources
+nitrogen --restore &
+setxkbmap -layout us -variant dvorak -option caps:ctrl_modifier,keypad:pointerkeys,shift:both_capslock
+qbittorrent &
+redshift &
+xss-lock i3lock -- i3lock --image='/home/lvds/Pictures/wallpapers/Here is a piece of a troll herb which nobody else but me can find.png' &
+xinput set-float-prop "ETPS/2 Elantech TrackPoint" "libinput Accel Speed" -0.2
+xinput set-prop "ETPS/2 Elantech TrackPoint" "libinput Scrolling Pixel Distance" 12
+
+exec i3
+

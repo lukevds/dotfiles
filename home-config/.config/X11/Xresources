@@ -1,0 +1,27 @@
+
+xterm.termName: xterm-256color
+xterm.ttyModes: erase ^?
+xterm.reverseVideo: true
+xterm.vt100.metaSendsEscape: true
+xterm.vt100.backarrowKey: false
+xterm.vt100.reverseVideo: true
+xterm.vt100.faceName: Noto Sans Mono:size=10:antialias=false
+xterm.vt100.translations: #override \n\
+    Ctrl <Key> +:       larger-vt-font() \n\
+    Ctrl <Key> =:       larger-vt-font() \n\
+    Ctrl <Key> -:       smaller-vt-font()
+
+Xft.dpi: 152
+
+! These might also be useful depending on your monitor and personal preference:
+Xft.autohint: 0
+Xft.lcdfilter:  lcddefault
+Xft.hintstyle:  hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
+
+
+Xcursor.size: 40
+
+
