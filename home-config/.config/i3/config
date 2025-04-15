@@ -103,12 +103,12 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # change focus between tiling / floating windows
-bindsym $mod+space       focus mode_toggle
+bindsym $mod+Tab       focus mode_toggle
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+Tab floating toggle
 
 # focus parent/child container
-bindsym $mod+a focus parent
+bindsym $mod+p focus parent
 bindsym $mod+c focus child
 
 # change focus
@@ -136,7 +136,7 @@ bindsym $mod+Shift+Right move right
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
+bindsym $mod+t layout tabbed
 bindsym $mod+x layout toggle split
 
 # toggle sticky
@@ -190,14 +190,15 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+backslash exec "i3-msg open"
 
 # change keyboard layouts
-bindsym $mod+d         exec "setxkbmap -layout us,br -variant dvorak,dvorak -option grp:lctrl_toggle,caps:ctrl_modifier,keypad:pointerkeys,shift:both_capslock,compose:paus"
-bindsym $mod+Control+d exec "setxkbmap -layout br"
+# bindsym $mod+d         exec "setxkbmap -layout us,br -variant dvorak,dvorak -option grp:lctrl_toggle,caps:ctrl_modifier,keypad:pointerkeys,shift:both_capslock,compose:paus"
+# bindsym $mod+Control+d exec "setxkbmap -layout br"
 
 # screenshot bindings
-bindsym --release Print            exec --no-startup-id scrot -e 'xclip -selection clipboard -t image/png -i $f' ~/Pictures/Screenshots/'%Y-%m-%d_%H-%M_scrot.png' 
-bindsym --release Control+Print    exec --no-startup-id scrot ~/Pictures/Screenshots/'%Y-%m-%d_%H-%M_scrot.png'
-bindsym --release $mod+Print       exec --no-startup-id scrot -u ~/Pictures/Screenshots/'%Y-%m-%d_%H-%M_window-scrot.png'
-bindsym --release $mod+Shift+Print exec --no-startup-id scrot -s -f ~/Pictures/Screenshots/'%Y-%m-%d_%H-%M_selection-scrot.png'
+# works: scrot "$HOME/Pictures/Screenshots/%Y-%m-%d_%H-%M_scrot.png" -e 'xclip -selection clipboard -t image/png -i $f'
+# bindsym --release Print            exec --no-startup-id 'scrot -e \'$HOME/Pictures/Screenshots/%Y-%m-%d_%H-%M_scrot.png\' \'xclip -selection clipboard -t image/png -i $f\''
+# bindsym --release Control+Print    exec --no-startup-id scrot ~/Pictures/Screenshots/'%Y-%m-%d_%H-%M_scrot.png'
+# bindsym --release $mod+Print       exec --no-startup-id scrot -u ~/Pictures/Screenshots/'%Y-%m-%d_%H-%M_window-scrot.png'
+# bindsym --release $mod+Shift+Print exec --no-startup-id scrot -s -f ~/Pictures/Screenshots/'%Y-%m-%d_%H-%M_selection-scrot.png'
 
 # screen brightness
 bindsym XF86MonBrightnessUp   exec "light -A 10"
@@ -257,18 +258,20 @@ bindsym $mod+r mode "resize"
 
 
 #### invoking programs
+bindsym $mod+space       exec --no-startup-id emacsclient -c -a "emacs"
+bindsym $mod+Shift+space exec --no-startup-id emacs --no-init-file
 # function key shortcuts
 bindsym $mod+F1 exec --no-startup-id firefox
 bindsym $mod+F2 exec --no-startup-id emacsclient -a 'emacs' -c
 bindsym $mod+F3 exec --no-startup-id pavucontrol
 bindsym $mod+F4 exec --no-startup-id keepassxc
 # start a terminal
-bindsym $mod+t       exec --no-startup-id emacsclient -c -e '(term shell-file-name)' -a emacs
-bindsym $mod+Shift+t exec --no-startup-id xterm
+bindsym $mod+Return       exec --no-startup-id emacsclient -c -e '(term shell-file-name)' -a emacs
+bindsym $mod+Shift+Return exec --no-startup-id xterm
 # start dmenu
-bindsym $mod+Return  exec --no-startup-id dmenu_run -nb '#222222' -sf '#eeeeee' -sb '#326432' -nf '#bbbbbb'
+bindsym $mod+d  exec --no-startup-id dmenu_run -nb '#222222' -sf '#eeeeee' -sb '#326432' -nf '#bbbbbb'
 # lock user session
-bindsym $mod+p       exec loginctl lock-session
+bindsym $mod+b       exec loginctl lock-session
 # open file manager
 bindsym $mod+e       exec pcmanfm
 
@@ -300,3 +303,4 @@ bindsym $mod+e       exec pcmanfm
 # bindsym $mod+i mode "config"
 
 # bindsym $mod+Shift+f [class="(?i)emacs"] focus
+
