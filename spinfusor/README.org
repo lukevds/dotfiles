@@ -1,0 +1,16 @@
+The architecture of this computer is x86_64 and I use it with the operating system and package manager [[https://guix.gnu.org/][GNU Guix.]]
+
+* Installing user configuration package using GNU Stow
+
+The user configuration package contains user-level (i.e. not system-level) configuration and program files. You can install it using GNU Stow with the following command:
+
+#+begin_src bash :eval never
+  stow -t ~ home
+#+end_src
+
+You can uninstall it with the following command:
+
+#+begin_src bash :eval never
+  stow -t ~ -D home
+#+end_src
+
