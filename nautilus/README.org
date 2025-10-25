@@ -1,0 +1,1 @@
+The architecture of this computer is x86_64 and I use it with the operating system Arch Linux and package manager [[https://guix.gnu.org/][GNU Guix.]]

@@ -1,0 +1,3 @@
+xrdb $HOME/.config/X11/Xresources
+setxkbmap -layout us -variant dvorak -option caps:ctrl_modifier,keypad:pointerkeys,shift:both_capslock
+

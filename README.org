@@ -1,1 +1,15 @@
 This repository contains configuration files and programs for software I use on my computers. My goals with this repository are facilitating reproducing these configurations and sharing them so others can learn and contribute to them. The directory 'common' contains configurations common to more than one computer. Every other directory contains configurations for its respective computer.
+
+* Installing user configuration package using GNU Stow
+
+The user configuration package contains user-level (i.e. not system-level) configuration and program files, they are identified by the directory name 'home' in each computer's directory. To install them you need invoke stow from the computer's directory. For example, you can install spinfusor's configuration package using:
+#+begin_src bash :eval never
+  cd spinfusor
+  stow -t ~ home
+#+end_src
+
+To uninstall:
+#+begin_src bash :eval never
+  stow -t ~ -D home
+#+end_src
+

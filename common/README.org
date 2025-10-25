@@ -1,1 +1,1 @@
-Too learn how to install this configuration, see [[file:../spinfusor/README.org::*Installing user configuration package using GNU Stow][Installing user configuration package using GNU Stow.]]
+This directory contains configurations common to more than one computer.
