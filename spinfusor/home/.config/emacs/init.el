@@ -23,7 +23,9 @@
 (setq org-capture-templates
       '(("a" "Avulsas" entry
 	 (file "/home/lvds/Documents/avulsas.org")
-	 "* %^{PROMPT}\n%T\n%?")))
+	 "* %^{PROMPT}\n%T\n%?")
+        ("b" "Atividade do dia" entry (file+olp+datetree "/home/lvds/Documents/diarias.org")
+         "* TODO %?")))
 
 (defvar meta-space-map (make-sparse-keymap)
   "Keymap where I store key bindings that I want to access in any mode.")
@@ -38,7 +40,8 @@
  'org-babel-load-languages
  '((emacs-lisp . t)
    (shell . t)
-   (haskell . t)))
+   (haskell . t)
+   (scheme . t)))
 
 (require 'eat)
 (keymap-set meta-space-map "RET" #'eat)
@@ -149,6 +152,9 @@ MSearch on English Wikipedia: ")
 (add-hook 'conf-mode-hook #'conf-mode-outline-setup)
 
 (load-file (concat user-emacs-directory "./secrets.el"))
+
+(require 'geiser)
+(require 'geiser-guile)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
