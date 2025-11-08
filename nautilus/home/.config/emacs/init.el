@@ -1,33 +1,16 @@
 ; -*- lexical-binding: t -*-
 
-(global-visual-line-mode 1)
-(column-number-mode 1)
-
-(menu-bar-mode -1)
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
-(context-menu-mode 1)
-
-(setq dired-listing-switches "-alh")
-
-(require 'org-capture)
-
-(require 'org-tempo)
+(load-file (concat user-emacs-directory "./common.el"))
 
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((emacs-lisp . t)
    (shell . t)))
 
-(require 'eat)
-(require 'magit)
-
 (defun activate-fill-column-indicator ()
   (display-fill-column-indicator-mode 1))
 
 (add-hook 'git-commit-mode-hook #'activate-fill-column-indicator)
-
-(keymap-global-set "C-x p e" #'eat-project)
 
 (defun open-project-in-code ()
   (interactive)
@@ -56,15 +39,8 @@
 
 (require 'treemacs)
 
-(defvar meta-space-map (make-sparse-keymap)
-  "Keymap where I store key bindings that I want to access in any mode.")
-
 (keymap-set meta-space-map "C-t" #'treemacs-select-window)
 (keymap-set meta-space-map "t" #'treemacs)
-
-(keymap-global-set "M-SPC" meta-space-map)
-
-;; (require 'lsp-mode) ; usar pacotes q melhoram performance, ver se resolve
 
 (load-file (concat user-emacs-directory "./secrets.el"))
 

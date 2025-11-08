@@ -1,24 +1,14 @@
 ; -*- lexical-binding: t -*-
 
+(load-file (concat user-emacs-directory "./common.el"))
+
 (add-to-list 'default-frame-alist
              '(font . "DejaVu Sans Mono-15"))
 
 (set-face-attribute 'default nil :height 220)
 (set-face-attribute 'italic nil :underline nil)
 
-(menu-bar-mode -1)
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
-
-(context-menu-mode 1)
-(global-visual-line-mode 1)
-(column-number-mode 1)
-
 (setq org-startup-with-inline-images t)
-
-(keymap-global-set "C-x C-b" #'ibuffer)
-
-(require 'org-capture)
 
 (setq org-capture-templates
       '(("a" "Avulsas" entry
@@ -27,42 +17,12 @@
         ("b" "Atividade do dia" entry (file+olp+datetree "/home/lvds/Documents/diarias.org")
          "* TODO %?")))
 
-(defvar meta-space-map (make-sparse-keymap)
-  "Keymap where I store key bindings that I want to access in any mode.")
-
-(keymap-set meta-space-map "o c" #'org-capture)
-
-(keymap-global-set "M-SPC" meta-space-map)
-
-(require 'org-tempo)
-
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((emacs-lisp . t)
    (shell . t)
    (haskell . t)
    (scheme . t)))
-
-(require 'eat)
-(keymap-set meta-space-map "RET" #'eat)
-(keymap-global-set "C-x p e" #'eat-project)
-
-(require 'magit)
-
-(setq dired-listing-switches "-alh")
-(setq dired-guess-shell-alist-user '(("\\.\\(mp4\\|webm\\|mkv\\)\\'" "mpv")
-				     ("\\.\\(mp3\\|opus\\|m4a\\)\\'" "mpv --player-operation-mode=pseudo-gui")))
-(setq dired-dwim-target t)
-
-(setq isearch-lazy-count t)
-
-(require 'pdf-tools)
-(pdf-tools-install)
-(pdf-loader-install)
-
-(require 'org-pdftools)
-(add-hook 'org-mode-hook #'org-pdftools-setup-link)
-(require 'org-noter-pdftools)
 
 (require 'haskell-mode)
 
@@ -141,20 +101,22 @@ MSearch on English Wikipedia: ")
 
 (setq bookmark-save-flag 1)
 
+(setq outline-minor-mode-cycle t)
+
 (defun conf-outline-level-comments ()
-  (1- (length (match-string 0))))
+  (- (length (match-string 0)) 2))
 
 (defun conf-mode-outline-setup ()
   (outline-minor-mode 1)
-  (setq-local outline-regexp " #+")
+  (setq-local outline-regexp "^# \\*+")
   (setq-local outline-level #'conf-outline-level-comments))
 
 (add-hook 'conf-mode-hook #'conf-mode-outline-setup)
 
-(load-file (concat user-emacs-directory "./secrets.el"))
-
 (require 'geiser)
 (require 'geiser-guile)
+
+(load-file (concat user-emacs-directory "./secrets.el"))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
