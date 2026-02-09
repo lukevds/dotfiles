@@ -263,6 +263,7 @@ bindsym $mod+space       exec --no-startup-id emacsclient -c -a "emacs"
 bindsym $mod+Shift+space exec --no-startup-id emacs --no-init-file
 # function key shortcuts
 bindsym $mod+F1 exec --no-startup-id firefox
+bindsym $mod+Shift+F1 exec --no-startup-id firefox --private-window
 bindsym $mod+F2 exec --no-startup-id emacsclient -a 'emacs' -c
 bindsym $mod+F3 exec --no-startup-id pavucontrol
 bindsym $mod+F4 exec --no-startup-id keepassxc
@@ -274,7 +275,7 @@ bindsym $mod+d  exec --no-startup-id dmenu_run -nb '#222222' -sf '#eeeeee' -sb '
 # lock user session
 bindsym $mod+b       exec loginctl lock-session
 # open file manager
-bindsym $mod+e       exec pcmanfm
+bindsym $mod+e       exec --no-startup-id emacsclient -c -e '(dired "~")'
 
 
 # mode "config" {
