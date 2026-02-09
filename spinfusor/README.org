@@ -1,1 +1,23 @@
-The architecture of this computer is x86_64 and I use it with the operating system and package manager [[https://guix.gnu.org/][GNU Guix.]]
+The architecture of this computer is x86_64 and I use it with the operating system and package manager [[https://guix.gnu.org/][GNU Guix.]] To use the 'home' stow package you need to install the 'common' package first by issuing the following commands:
+#+begin_src bash
+  cd ../common
+  stow -t ../spinfusor/home/ home/
+#+end_src
+Then you can install the package using:
+#+begin_src bash
+  stow -t ~ home
+#+end_src
+
+The operating system configuration of this computer is available at [[./spinfusor/system.scm][spinfusor/system.scm]]. You can create your own config based on it using:
+#+begin_src scheme
+  ; my-config.scm
+  (use-modules (spinfusor system))
+
+  (operating-system
+    (inherit os)
+    ...)
+#+end_src
+And then install it using:
+#+begin_src bash
+  sudo GUILE_LOAD_PATH=$GUILE_LOAD_PATH:${PWD} guix system reconfigure my-config.scm
+#+end_src
