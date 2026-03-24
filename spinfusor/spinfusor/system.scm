@@ -53,7 +53,7 @@
                   (targets '("/boot/efi"))
 		  (keyboard-layout keyboard-layout)))
 
-    (file-systems '())
+    (file-systems %base-file-systems)
 
     (users (cons (user-account
                    (name "lvds")
