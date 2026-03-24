@@ -132,6 +132,8 @@ MSearch on English Wikipedia: ")
         "https://karthinks.com/index.xml"
         "https://susam.net/feed.xml"))
 
+(keymap-set meta-space-map "f f" #'find-file-at-point)
+
 (load-file (concat user-emacs-directory "./secrets.el"))
 
 (setq custom-file (concat user-emacs-directory "custom.el"))

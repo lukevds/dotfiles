@@ -79,8 +79,6 @@
                   (list (subid-range (name "lvds"))))))
       (service tlp-service-type
 	       (tlp-configuration
-	         (start-charge-thresh-bat0 80)
-	         (stop-charge-thresh-bat0 85)
 	         (disks-devices '())))
       (service bluetooth-service-type)
       (set-xorg-configuration

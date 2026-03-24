@@ -5,7 +5,7 @@
 (scroll-bar-mode -1)
 
 (context-menu-mode 1)
-(global-visual-line-mode 1)
+;; (global-visual-line-mode 1)
 (column-number-mode 1)
 
 (setq org-startup-with-inline-images t)
@@ -26,6 +26,7 @@
 (require 'eat)
 (keymap-set meta-space-map "RET" #'eat)
 (keymap-global-set "C-x p e" #'eat-project)
+
 
 (setq dired-listing-switches "-alh")
 (setq dired-guess-shell-alist-user '(("\\.\\(mp4\\|webm\\|mkv\\)\\'" "mpv")
