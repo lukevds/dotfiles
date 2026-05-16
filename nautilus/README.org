@@ -1,1 +1,0 @@
-This config is not used anymore. It was used on a computer of architecture x86_64 with the operating system Arch Linux and package manager [[https://guix.gnu.org/][GNU Guix.]]

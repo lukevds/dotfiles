@@ -1,13 +1,13 @@
-The architecture of this computer is x86_64 and I use it with the operating system and package manager [[https://guix.gnu.org/][GNU Guix.]] To use the 'home' stow package you need to install the 'common' package first by issuing the following commands:
-#+begin_src bash
-  cd ../common
-  stow -t ../spinfusor/home/ home/
-#+end_src
-Then you can install the package using:
+The architecture of this computer is x86_64 and I use it with the operating system and package manager [[https://guix.gnu.org/][GNU Guix]] and with the symlink manager Stow. To install the stow package containing configuration for Emacs, i3 window manager and i3 status, issue the following command on your system:
 #+begin_src bash
   stow -t ~ home
 #+end_src
+If you want to uninstall it:
+#+begin_src bash
+  stow -t ~ -D home
+#+end_src
 
+* Operating System
 The operating system configuration of this computer is available at [[./spinfusor/system.scm][spinfusor/system.scm]]. You can create your own config based on it using:
 #+begin_src scheme
   ; my-config.scm
@@ -21,3 +21,6 @@ And then install it using:
 #+begin_src bash
   sudo GUILE_LOAD_PATH=$GUILE_LOAD_PATH:${PWD} guix system reconfigure my-config.scm
 #+end_src
+
+* Emacs
+I use the [[info:emacs#Emacs Server][server feature]] (=--daemon= CLI option,) launched manually.
