@@ -24,7 +24,8 @@
  '((emacs-lisp . t)
    (shell . t)
    (haskell . t)
-   (scheme . t)))
+   (scheme . t)
+   (dot . t)))
 
 (require 'haskell-mode)
 
@@ -138,3 +139,4 @@ MSearch on English Wikipedia: ")
 
 (setq custom-file (concat user-emacs-directory "custom.el"))
 (load custom-file)
+(put 'upcase-region 'disabled nil)
